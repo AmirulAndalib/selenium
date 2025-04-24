@@ -38,7 +38,7 @@ module Selenium
         def expect_request(body: nil, endpoint: nil)
           body = (body || {capabilities: {alwaysMatch: {acceptInsecureCerts: true,
                                                         browserName: 'firefox',
-                                                        'moz:firefoxOptions': {prefs: {'remote.active-protocols' => 3}},
+                                                        'moz:firefoxOptions': {prefs: {'remote.active-protocols' => 1}},
                                                         'moz:debuggerAddress': true}}}).to_json
           endpoint ||= "#{service_manager.uri}/session"
           stub_request(:post, endpoint).with(body: body).to_return(valid_response)
